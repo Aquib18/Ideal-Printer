@@ -5,7 +5,19 @@ export const categories = [
   "Calendars",
   "Stationery",
   "Pens",
+
+
+  "Customize Tshirt",
   "Gift Boxes",
+  "Bill Book",
+  "Challan Book",
+  "Letter Head",
+  "Envelop",
+  "ID Card",
+  "Vnyl Sticker",
+  "Flex Printing",
+  "Visiting Card"
+
 ] as const;
 
 export type Category = (typeof categories)[number];

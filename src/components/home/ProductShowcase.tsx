@@ -8,10 +8,20 @@ import type { Category } from "../products/types";
 
 import Dairy from "../../assets/images/Dairy.png";
 import Pen from "../../assets/images/Pen.png";
-import Calender from "../../assets/images/Calender.png";
+import Calender from "../../assets/images/Hero2.png";
 import Notebook from "../../assets/images/Notebook.png";
-import Giftbox from "../../assets/images/Giftbox.png";
 import Stationary from "../../assets/images/Stationary.png";
+
+
+import Tshirt from "../../assets/images/Hero5.png";
+import IDCard from "../../assets/images/Hero4.png";
+import Challanbook from "../../assets/images/Challan.png";
+import Billbook from "../../assets/images/Hero3.png";
+import Letterhead from "../../assets/images/Letterhead.jpeg";
+import Envelop from "../../assets/images/Envelp.jpeg";
+import Vnyl from "../../assets/images/Vnyl.jpeg";
+import Flex from "../../assets/images/Flex.jpeg";
+import VisitingCard from "../../assets/images/Hero1.jpeg";
 
 const products: {
   title: string;
@@ -44,9 +54,49 @@ const products: {
     image: Pen,
   },
   {
-    title: "Gift Boxes",
-    category: "Gift Boxes",
-    image: Giftbox,
+    title: "Bill Book",
+    category: "Bill Book",
+    image: Billbook,
+  },
+  {
+    title: "Challan Book",
+    category: "Challan Book",
+    image: Challanbook,
+  },
+  {
+    title: "Letter Head",
+    category: "Letter Head",
+    image: Letterhead,
+  },
+  {
+    title: "Visiting Card",
+    category: "Visiting Card",
+    image: VisitingCard,
+  },
+  {
+    title: "Envelop",
+    category: "Envelop",
+    image: Envelop,
+  },
+  {
+    title: "ID Card",
+    category: "ID Card",
+    image: IDCard,
+  },
+  {
+    title: "Customize Tshirt",
+    category: "Customize Tshirt",
+    image: Tshirt,
+  },
+  {
+    title: "Vnyl Sticker",
+    category: "Vnyl Sticker",
+    image: Vnyl,
+  },
+  {
+    title: "Flex Printing",
+    category: "Flex Printing",
+    image: Flex,
   },
 ];
 const ProductShowcase = () => {

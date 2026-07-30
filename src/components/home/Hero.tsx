@@ -2,7 +2,12 @@
 
 import React, { useEffect, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight, ScrollText, Droplet } from "lucide-react";
-import Hero1 from "../../assets/images/Hero1.jpg";
+import Hero1 from "../../assets/images/Hero1.jpeg";
+import Hero2 from "../../assets/images/Hero2.png";
+import Hero3 from "../../assets/images/Hero3.png";
+import Hero4 from "../../assets/images/Hero4.png";
+import Hero5 from "../../assets/images/Hero5.png";
+
 interface Slide {
   id: string;
   titleLine1: string;
@@ -13,43 +18,40 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
-    id: "business-cards",
-    titleLine1: "World Class Prints",
-    titleLine2: "Proudly Made in India",
-    caption: "Ideal Printers | Elevating your brand with luxury printing.",
+    id: "visiting-card",
+    titleLine1: "Visiting Cards",
+    titleLine2: "Make a Lasting First Impression",
+    caption: "Ideal Printers | Premium visiting cards that speak for your brand.",
     image: Hero1,
   },
   {
-    id: "packaging",
-    titleLine1: "Premium Packaging",
-    titleLine2: "Crafted to Perfection",
-    caption: "Ideal Printers | Luxury boxes that make your product unforgettable.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA6EvAVu1JicZey8NzAAjhElpOhWgOKpDdfLj0ItZnY9mhJAiy8qQ5OieZqVjBJSYlqNzvHhrgTL4L0j-cZUUAssCHKF_vTG_ZvdxdZSDmn9J3i8oWD_g9nNFBbC0x4Ted4wErvRIBMjiyK76J8NT-iGmLUCJ2We2Aw2u_uiAKAK4B1oatRvQ2zsBA1EaXvBVMRh8eEjFVN9bFQUcd6NDaKCk3JzyUiVykPCMQAy5-JbeLZ-N5pDUFq",
+    id: "bill-book",
+    titleLine1: "Bill Books",
+    titleLine2: "Built for Everyday Business",
+    caption: "Ideal Printers | Durable, professional bill books for your store.",
+    image:Hero3,
   },
   {
-    id: "wedding-cards",
-    titleLine1: "Wedding Invitations",
-    titleLine2: "Timeless Elegance",
-    caption: "Ideal Printers | Crafting the first chapter of your story.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAJHStJZLuy9hjaFOYvw18VSbqeZjXoN2GU4OLSiYtQxanTW52xxdZOuS6DE-HUFaoIlvUX8L5kJRxN-znYYDjbPsr5bIA0x-Pg3ukYRvRkjWBC6zw87YlHVxAG3m1uokd3poabDAfQvNBT0oTidumUeIfj8jn5ivYeo8RMe8nPfKG1gUnjRP7yF7jEtoXPwzDqFAfg1BWYJSXleKS8v3NmiRk0uIIUTVzDWoTJ84afANCqTFY6Jpsq",
+    id: "custom-tshirt",
+    titleLine1: "Customized T-Shirts",
+    titleLine2: "Wear Your Brand, Your Style",
+    caption: "Ideal Printers | Custom printed tees for teams, events, and brands.",
+    image:Hero5,
   },
   {
-    id: "corporate",
-    titleLine1: "Corporate Branding",
-    titleLine2: "Professional Excellence",
-    caption: "Ideal Printers | Reports and materials that command respect.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA-rYu-HwS4snVKZ9Fx9u5-OfZnCmGxl3CcKSfztAxbtmxXLxkXnS96C3H6BvF_F86yYeKwHqCkznlJ-4mMTHRonLlVXGF7hZekjfSYGpQfGe9F_PFh7nhrOCVIu7bDUYqkoDuiLZFHnDIaqRRpakyrc62mbvBQza-ESugufojtNHt1mC4DFDwvC-9cIRkmmfb2GxoeR4rc8fbsoPDZZC-loRca_XqDRXBAgCV5eqBskIxe3tamQgha",
+    id: "calendar",
+    titleLine1: "Custom Calendars",
+    titleLine2: "Every Day, Your Brand in View",
+    caption: "Ideal Printers | Beautifully printed calendars that keep you visible all year.",
+    image:Hero2,
+
   },
   {
-    id: "large-format",
-    titleLine1: "Large Format Printing",
-    titleLine2: "Bold & Vibrant",
-    caption: "Ideal Printers | Big impressions for every event and space.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCQRpoNNT73olbp5NUjIwBISnpnkRXxBKww0eUfc1IMlKx-eqS5txe2sc6i6RhKYbGgYDcZ-c64GU2BLxXx8N2uGj3JYjTfBFH3o_BeIQFHiu9D3GKrMGWlBcJWpez4FCEbJzhghiU7RHglvB_C1CZ41asGdEe4QpwQLE54rtr_pQFPQ2z_nhz2orikKD9bhrLblcTY_TvPSkxJKcRuWcF9kYhIAMFphFvdo46_amexNI-sU-vPlufH",
+    id: "id-card",
+    titleLine1: "ID Cards",
+    titleLine2: "Professional Identity, Printed Right",
+    caption: "Ideal Printers | Durable, secure ID cards for staff and members.",
+    image:Hero4,
   },
 ];
 

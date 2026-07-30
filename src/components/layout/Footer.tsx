@@ -26,20 +26,20 @@ const Footer = () => {
           <div className="flex gap-4 mt-6">
             <a
               href="#"
-              className="bg-[#2A2A2A] p-3 rounded-full hover:bg-[#C9963E] transition"
+              className="bg-white p-3 rounded-full hover:bg-[#C9963E] transition"
             >
               <FaFacebookF size={18} />
             </a>
 
             <a
               href="#"
-              className="bg-[#2A2A2A] p-3 rounded-full hover:bg-[#C9963E] transition"
+              className="bg-white p-3 rounded-full hover:bg-[#C9963E] transition"
             >
               <FaInstagram size={18} />
             </a>
             <a
               href="#"
-              className="bg-[#2A2A2A] p-3 rounded-full hover:bg-[#C9963E] transition"
+              className="bg-white p-3 rounded-full hover:bg-[#C9963E] transition"
             >
               <FaLinkedinIn size={18} />
             </a>
@@ -108,12 +108,12 @@ const Footer = () => {
 
           <div className="space-y-5">
             <div className="flex items-start gap-3">
-              <MapPin className="mt-1 text-[#C9963E]" size={18} />
+              <MapPin className="mt-2 text-[#C9963E]" size={24} />
 
               <p className="text-[#CFCFCF]">
-                Industrial Estate Plot 42
+                Behind Prabhu Chambers, Kalbhornagar,Chinchwad
                 <br />
-                Mumbai, Maharashtra 400001
+                Pune, Maharashtra - 411019
               </p>
             </div>
 
@@ -121,10 +121,10 @@ const Footer = () => {
               <Phone className="text-[#C9963E]" size={18} />
 
               <a
-                href="tel:+912224567890"
+                href="tel:+917758874354"
                 className="text-[#CFCFCF] hover:text-[#C9963E]"
               >
-                +91 22 2456 7890
+                +91 7758874354
               </a>
             </div>
 
@@ -132,10 +132,12 @@ const Footer = () => {
               <Mail className="text-[#C9963E]" size={18} />
 
               <a
-                href="mailto:contact@idealprinters.com"
+                href="mailto:idealprinters111@gmail.com"
                 className="text-[#CFCFCF] hover:text-[#C9963E]"
               >
-                contact@idealprinters.com
+                idealprinters111@gmail.com
+                <br />
+                yasirmoin81@gmail.com
               </a>
             </div>
           </div>

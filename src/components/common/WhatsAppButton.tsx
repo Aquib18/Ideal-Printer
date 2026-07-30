@@ -1,15 +1,14 @@
 // src/components/layout/WhatsAppButton.tsx
 
-import { MessageCircle } from "lucide-react";
-
+import { FaWhatsapp } from "react-icons/fa";
 interface WhatsAppButtonProps {
   phoneNumber?: string;
   message?: string;
 }
 
 const WhatsAppButton = ({
-  phoneNumber = "910000000000",
-  message = "Hello, I'm interested in your printing services.",
+  phoneNumber = "917758874354",
+  message = "Hello,Ideal Printers I'm interested in your printing services.",
 }: WhatsAppButtonProps) => {
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message
@@ -31,7 +30,7 @@ const WhatsAppButton = ({
 
         {/* Floating Button */}
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-transform duration-300 hover:scale-110 active:scale-95">
-          <MessageCircle size={32} fill="currentColor" />
+         <FaWhatsapp size={34} />
         </div>
       </div>
     </a>
