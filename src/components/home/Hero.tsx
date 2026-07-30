@@ -1,92 +1,8 @@
-// import React from "react";
-// import Container from "../common/Container";
-
-// const Hero: React.FC = () => {
-//   return (
-//     <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-[#1E1E1E]">
-//       {/* Background Texture */}
-//       <div
-//         className="absolute inset-0 opacity-20"
-//         style={{
-//           backgroundImage:
-//             "radial-gradient(circle, #2a2a2a 1px, transparent 1px)",
-//           backgroundSize: "20px 20px",
-//         }}
-//       />
-
-//       {/* Dark Overlay */}
-//       <div className="absolute inset-0 bg-gradient-to-r from-[#1E1E1E] via-[#1E1E1E]/90 to-transparent z-10" />
-
-//       {/* Content */}
-//       <Container className="relative z-20">
-//         <div className="max-w-3xl">
-
-//           {/* Heading */}
-//           <h1 className="font-extrabold uppercase tracking-wide text-4xl md:text-6xl leading-tight text-[#C9963E] mb-6">
-//             Premium Printing Solutions
-//             <br />
-//             For Every Business
-//           </h1>
-
-//           {/* Description */}
-//           <p className="text-lg md:text-xl text-gray-300 leading-8 mb-10 max-w-2xl">
-//             Meticulous precision meeting industrial-scale efficiency.
-//             We define excellence in every impression, from bespoke
-//             packaging to high-volume offset printing.
-//           </p>
-
-//           {/* Buttons */}
-//           <div className="flex flex-wrap gap-4">
-
-//             <button
-//               className="
-//                 bg-[#C9963E]
-//                 text-[#4A3100]
-//                 px-8
-//                 py-4
-//                 rounded-xl
-//                 uppercase
-//                 font-bold
-//                 transition
-//                 hover:bg-[#A67B32]
-//               "
-//             >
-//               Get a Quote
-//             </button>
-
-//             <button
-//               className="
-//                 border-2
-//                 border-[#C9963E]
-//                 text-[#C9963E]
-//                 px-8
-//                 py-4
-//                 rounded-xl
-//                 uppercase
-//                 font-bold
-//                 transition
-//                 hover:bg-[#C9963E]
-//                 hover:text-[#4A3100]
-//               "
-//             >
-//               Contact Us
-//             </button>
-
-//           </div>
-
-//         </div>
-//       </Container>
-//     </section>
-//   );
-// };
-
-// export default Hero;
-
 
 
 import React, { useEffect, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight, ScrollText, Droplet } from "lucide-react";
-
+import Hero1 from "../../assets/images/Hero1.jpg";
 interface Slide {
   id: string;
   titleLine1: string;
@@ -101,8 +17,7 @@ const SLIDES: Slide[] = [
     titleLine1: "World Class Prints",
     titleLine2: "Proudly Made in India",
     caption: "Ideal Printers | Elevating your brand with luxury printing.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBIg_15Hgs_tZfoq3aju7sa_5Y1PZD3l8M_bNWfPgO50aCjpdHQUt32sAKNh__GEwFBxnzeBfAeqAaPx5A5z_z8knEa437PHrOYX9P5il-W_tmt-oaPKndOi7Jpa2j43RHL7vpLCIgd9XUQoRvMJw2TFlpcouVAMBBmepKHjgxkM9hYtplvLKVi0n1vAzJUQT9WGC1yyVdB8DYB6Xosw7NLSbXoJvsofmfcCvIDC9gVTRAWRy9Au069",
+    image: Hero1,
   },
   {
     id: "packaging",
