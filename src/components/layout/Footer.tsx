@@ -9,13 +9,13 @@ const Footer = () => {
       <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-6 py-20 md:grid-cols-4 lg:px-16">
         {/* Company */}
         <div>
-        <Link to="/" className="flex items-center">
-  <img
-    src={logo}
-    alt="Ideal Printers"
-    className="h-12 w-auto object-contain"
-  />
-</Link>
+          <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt="Ideal Printers"
+              className="h-12 w-auto object-contain"
+            />
+          </Link>
 
           <p className="leading-7 text-[#B8B8B8]">
             Defining printing excellence with premium quality, innovative

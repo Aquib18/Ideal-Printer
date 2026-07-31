@@ -1,440 +1,700 @@
-import type { Product } from "../types";
+import type { Product, ProductCategory } from "../types";
 
-export const placeholderImage = (id: number) =>
-  `https://picsum.photos/seed/idealprinters-${id}/600/400`;
+const imageModules = import.meta.glob(
+  "../../../assets/images/*.{jpg,jpeg,JPG,JPEG,png,PNG,webp,WEBP}",
+  { eager: true, import: "default" }
+) as Record<string, string>;
 
-export const products: Product[] = [
-  {
-    id: 1,
-    title: "Executive Heritage Diary",
-    description:
-      "Premium 2024 leather-bound planner with archival-grade paper and gold-edged pages.",
-    price: "$45.00",
-    featured: true,
-    category: "Diaries",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCYwRmtwj0ot0_i3NLs1DdT1dZqeib4Nl_ijylMktX0rAuXqRTliDKggX4GapYxgJcYbspq-1QzGDexUtIp19gWztqYtlwlSHxgUvqdnsZsw9gLQd248dxB-II7jBB9lZeenxsbOeUIrgH6ttGL9Gs3jFZPum16qTlcwk4sVAdNB2AsCk8_4UWAtYltQdatzIYf71JBY7yv2RpVpSrvur0kblYQn6fv-dD3TreWmMQHjnqSMeH_Jb035V1NGrMxfVAgEaQ_Fz4fe7GR",
-  },
-  {
-    id: 2,
-    title: "Industrial Grid Notebook",
-    description:
-      "Linen cover with 120gsm dot-grid paper, perfect for architectural sketches and meeting notes.",
-    price: "$22.50",
-    category: "Notebooks",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD9ZlrBv1g7tRRh_sh6S_qbXVTLB1zXd6ZDTxhonB9WYd5pkDwbgYrXSRnl7lnLcJJZCl8k7tRk2ehIEjf9_JDPu8Eplm8k93gFGXymashGBf4XTBWF4b3__PihSG5LCgZhfonaePwOz7My6Vwkd99u9yKrB1O4j9x8aCm41v-fQ8kPFQvH87j49ZJLdJ7fTD9exf6alr_gazGk_3mKZi3TDkq5oRDA5k90UfseOZ2HzpRB0D-SYzSEiiVjVNI_oiGItCpIau46LP8i",
-  },
-  {
-    id: 3,
-    title: "Perspective Wall Calendar",
-    description:
-      "A3 oversized format featuring matte art paper and industrial-grade twin-loop wire binding.",
-    price: "$35.00",
-    category: "Calendars",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAAXBFTcJXt87Q5Q4uNr9E1_gm5ItqUUVHzO-wcVH-2qkDqvICL3hPMGa7fHOm6R_4VynJB8ByZ2TIoZ5iASTpa2o3GleHVJBnU2I0Az-Tl9rWA6HTiZktdnfvEvtMrh4-j39V16nNrE5ne6XeiJNDx895rsiSgnDmG4KRIRHg0B0tmwj3dUUi54AIF4geO8IF-IQRo23ALIwdzae18HKxMzUnrYDtHj5RvzpjpI_qpPg2iLIr7aR5w7P7BFFygz8YkZ6brOFMEvHDC",
-  },
-  {
-    id: 4,
-    title: "The Signature Gift Set",
-    description:
-      "Complete executive gift suite including fountain pen, business card holder, and premium box.",
-    price: "$120.00",
-    category: "Gift Boxes",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD5hYoCSzTbX8MTKne1pEALw-3cRzEUxoUpqwhnpdL-4naIRY5ABaNlv23GeJYb6cBFqYtvi9O-VGXpl5IiORMX5G0C_eM9yP9TCo4l9mtOQpeOgyZZRcBUidCbV0SWKIuP2U7sAe0eTLHGdKgC9VtLG05gGEqoX4aaqTitRlbYTXGhlWu09SNFy9do0GzdQ6HoADALZMOr_mpqGdKWLNMtpT_Xl6SO18FIEtaOWp4DytM5W3ljvL_vf-qOVgUih8knw0goZfvVmRfI",
-  },
-  {
-    id: 5,
-    title: "Bespoke Corporate Stationery",
-    description:
-      "Fully customizable letterheads, envelopes, and business cards on premium 100% cotton stock.",
-    price: "Custom Quote",
-    category: "Stationery",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBKZJjN7TdSRUTzSacWEDj0cJUTHMu9M-4JNhEh_mzZ-VZmASPCTFDoUfvP-3QZajSCozjc9UcEJopQFI8J9k4aHQdlQAZUFBZF7v76-QDxf2ciHmcHJmxDcbdVe3T86CaPf-09XP6GaZ3t8Z373uQv9sDZeBW5nus4AYg6djUSRYPArrRckhzVgbprg13KzYTwlSKgp5orJpvxG-3zBlsoTccVjpOShpzncHFJsZAieyg2sgwZP26JALpX35Byb6apE3Yl4owco88B",
-  },
-  {
-    id: 6,
-    title: "Blueprints Desktop Calendar",
-    description:
-      "Heavyweight triangular tent cards with vibrant UV-cured digital printing for lasting durability.",
-    price: "$12.00",
-    category: "Calendars",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB4ibVaFfKu70jCXBzw-9m7xCUnpsDE-U8L7UnnlhoHdigqUjSaflESALVlXem-J5wvgOEMxvypTU2IShtQAvpQgrbm7LxxkIEI7BU-Fv_qu9XZzEaIhRPXIYmiediSheRe89UBvdj-e8a7KlyJNgug3IyrtbAdpfW8qMZtjyPslKEf602tze69dg4iOkC99i7YdqLOnplc0w2nlUl1xiR5WDmgiHsqQaBrjCvPNgRVI3DMC_l3IgmYDWNhU3mykbVOU__Enhp4MUeq",
-  },
+const imageByFilename: Record<string, string> = {};
+for (const [path, url] of Object.entries(imageModules)) {
+  const filename = (path.split("/").pop() ?? "").toLowerCase();
+  imageByFilename[filename] = url;
+}
 
-  // Diaries
-  {
-    id: 7,
-    title: "Classic Leather Diary",
-    description:
-      "Full-grain leather cover with ribbon marker and 90gsm cream pages.",
-    price: "$38.00",
-    category: "Diaries",
-    image: placeholderImage(7),
-  },
-  {
-    id: 8,
-    title: "Minimalist Kraft Diary",
-    description:
-      "Uncoated kraft cover with a stitched spine for a clean, understated look.",
-    price: "$18.00",
-    category: "Diaries",
-    image: placeholderImage(8),
-  },
-  {
-    id: 9,
-    title: "Pocket Travel Diary",
-    description:
-      "Compact A6 diary with an elastic closure, built for life on the road.",
-    price: "$15.00",
-    category: "Diaries",
-    image: placeholderImage(9),
-  },
-  {
-    id: 10,
-    title: "Vintage Bound Journal Diary",
-    description:
-      "Antique-finish cover with deckle-edge paper for a handmade feel.",
-    price: "$42.00",
-    category: "Diaries",
-    image: placeholderImage(10),
-  },
-  {
-    id: 11,
-    title: "Weekly Planner Diary",
-    description:
-      "Structured weekly spreads with goal-tracking pages and a monthly overview.",
-    price: "$28.00",
-    category: "Diaries",
-    image: placeholderImage(11),
-  },
-  {
-    id: 12,
-    title: "Monogram Leather Diary",
-    description:
-      "Personalized foil-stamped initials on a full-grain leather cover.",
-    price: "$50.00",
-    category: "Diaries",
-    image: placeholderImage(12),
-  },
-  {
-    id: 13,
-    title: "Recycled Paper Diary",
-    description:
-      "100% post-consumer recycled paper with a soy-ink printed cover.",
-    price: "$20.00",
-    category: "Diaries",
-    image: placeholderImage(13),
-  },
+const categoryImageOrder: Record<string, string[]> = {
+  Diaries: ["dairy1.png", "diary2.jpeg", "diary3.jpeg", "diary4.jpeg"],
+  Calendars: ["calender1.png","calender2.jpeg", "calender3.jpeg", "calender2.jpeg"],
+  Stationery: ["stationary.png"],
+  Pens: ["pen.png"],
+  "Customize Tshirt": [], // no image uploaded yet
+  "Bill Book": ["bill1.jpeg","bill2.jpeg","bill3.jpeg","bill3.jpeg"],
+  "Challan Book": ["challan1.png","challan2.jpeg","challan3.jpeg","challan1.png"],
+  "Letter Head": ["letterhead.jpeg", "letter1.jpeg","letter2.jpeg","letter2.jpeg"],
+  Envelop: ["envelop1.jpeg","envelop2.jpeg","envelop3.jpeg","envelop4.jpeg"],
+  "ID Card": ["id1.jpeg","id3.jpeg","id2.png","id3.jpeg"],
+  "Vnyl Sticker": ["vnyl1.jpeg","vnyl2.jpeg","vnyl3.jpeg","vnyl4.jpeg", ],
+  "Flex Printing": ["flex1.jpeg","flex2.jpeg","flex3.jpeg","flex1.jpeg",],
+  "Visiting Card": ["visitingcard.jpeg", "visiting1.jpg","visiting2.jpeg","visiting3.jpeg"],
+};
 
-  // Notebooks
-  {
-    id: 14,
-    title: "Ruled Softcover Notebook",
-    description:
-      "Everyday ruled notebook with a flexible softcover and 80gsm paper.",
-    price: "$10.00",
-    category: "Notebooks",
-    image: placeholderImage(14),
-  },
-  {
-    id: 15,
-    title: "Hardcover Sketch Notebook",
-    description:
-      "Heavyweight blank pages built for pencil, ink, and light watercolor work.",
-    price: "$24.00",
-    category: "Notebooks",
-    image: placeholderImage(15),
-  },
-    {
-    id: 16,
-    title: "Spiral Bound Notebook Set",
-    description:
-      "Set of three spiral notebooks that lie flat for easy note-taking.",
-    price: "$16.00",
-    category: "Notebooks",
-    image: placeholderImage(16),
-  },
-  {
-    id: 17,
-    title: "Kraft Cover Notebook",
-    description:
-      "Recycled kraft cover with a rubber band closure and pen loop.",
-    price: "$12.00",
-    category: "Notebooks",
-    image: placeholderImage(17),
-  },
-  {
-    id: 18,
-    title: "Premium Leather Notebook",
-    description:
-      "Refillable leather cover with an interchangeable dot-grid insert.",
-    price: "$32.00",
-    category: "Notebooks",
-    image: placeholderImage(18),
-  },
-  {
-    id: 19,
-    title: "Pocket Notebook 3-Pack",
-    description:
-      "Slim pocket-sized notebooks for quick notes on the go.",
-    price: "$9.00",
-    category: "Notebooks",
-    image: placeholderImage(19),
-  },
-  {
-    id: 20,
-    title: "Recycled Fiber Notebook",
-    description:
-      "Made from reclaimed textile fiber paper with a matte laminate cover.",
-    price: "$14.00",
-    category: "Notebooks",
-    image: placeholderImage(20),
-  },
+const getProductImage = (category: string, n: number): string => {
+  const list = categoryImageOrder[category] ?? [];
+  if (list.length === 0) {
+    console.warn(`No images configured for category "${category}"`);
+    return "";
+  }
+  const filename = list[(n - 1) % list.length].toLowerCase();
+  const url = imageByFilename[filename];
+  if (!url) {
+    console.warn(`Image "${filename}" not found for category "${category}"`);
+    return "";
+  }
+  return url;
+};
 
-  // Calendars
-  {
-    id: 21,
-    title: "Minimalist Wall Calendar",
-    description:
-      "Clean typographic monthly grid printed on uncoated matte stock.",
-    price: "$18.00",
-    category: "Calendars",
-    image: placeholderImage(21),
-  },
-  {
-    id: 22,
-    title: "Photo Print Calendar",
-    description:
-      "Full-bleed photography calendar with a spiral-bound easel back.",
-    price: "$25.00",
-    category: "Calendars",
-    image: placeholderImage(22),
-  },
-  {
-    id: 23,
-    title: "Weekly Planner Calendar",
-    description:
-      "Wall-mounted weekly planner with a wipeable laminated surface.",
-    price: "$20.00",
-    category: "Calendars",
-    image: placeholderImage(23),
-  },
-  {
-    id: 24,
-    title: "Corporate Branded Calendar",
-    description:
-      "Fully customizable calendar with your logo on every page.",
-    price: "$30.00",
-    category: "Calendars",
-    image: placeholderImage(24),
-  },
-  {
-    id: 25,
-    title: "Mini Desk Calendar",
-    description:
-      "Compact flip calendar that sits neatly on any desk.",
-    price: "$8.00",
-    category: "Calendars",
-    image: placeholderImage(25),
-  },
-  {
-    id: 26,
-    title: "Seasonal Art Calendar",
-    description:
-      "Limited-run calendar featuring a different illustrator each month.",
-    price: "$22.00",
-    category: "Calendars",
-    image: placeholderImage(26),
-  },
+interface ProductSeed {
+  category: ProductCategory;
+  items: { title: string; description: string }[];
+}
 
-  // Stationery
+const seedData: ProductSeed[] = [
   {
-    id: 27,
-    title: "Premium Letterhead Set",
-    description:
-      "100gsm cotton letterhead sheets with a subtle watermark finish.",
-    price: "$45.00",
+    category: "Diaries",
+    items: [
+      {
+        title: "Executive Heritage Diary",
+        description:
+          "Premium leather-bound planner with archival-grade paper and gold-edged pages.",
+      },
+      {
+        title: "Classic Leather Diary",
+        description:
+          "Full-grain leather cover with ribbon marker and 90gsm cream pages.",
+      },
+      {
+        title: "Minimalist Kraft Diary",
+        description:
+          "Uncoated kraft cover with a stitched spine for a clean, understated look.",
+      },
+      {
+        title: "Weekly Planner Diary",
+        description:
+          "Structured weekly spreads with goal-tracking pages and a monthly overview.",
+      },
+    ],
+  },
+  {
+    category: "Calendars",
+    items: [
+      {
+        title: "Perspective Wall Calendar",
+        description:
+          "A3 oversized format featuring matte art paper and industrial-grade twin-loop wire binding.",
+      },
+      {
+        title: "Minimalist Wall Calendar",
+        description:
+          "Clean typographic monthly grid printed on uncoated matte stock.",
+      },
+      {
+        title: "Photo Print Calendar",
+        description:
+          "Full-bleed photography calendar with a spiral-bound easel back.",
+      },
+      {
+        title: "Mini Desk Calendar",
+        description: "Compact flip calendar that sits neatly on any desk.",
+      },
+    ],
+  },
+  {
     category: "Stationery",
-    image: placeholderImage(27),
+    items: [
+      {
+        title: "Bespoke Corporate Stationery",
+        description:
+          "Fully customizable letterheads, envelopes, and business cards on premium 100% cotton stock.",
+      },
+      {
+        title: "Premium Letterhead Set",
+        description:
+          "100gsm cotton letterhead sheets with a subtle watermark finish.",
+      },
+      {
+        title: "Business Card Set",
+        description: "Double-sided business cards on premium uncoated stock.",
+      },
+      {
+        title: "Embossed Note Cards",
+        description:
+          "Blind-embossed note card set with matching lined envelopes.",
+      },
+    ],
   },
   {
-    id: 28,
-    title: "Custom Envelope Pack",
-    description:
-      "Pack of 50 envelopes available in a range of finishes and sizes.",
-    price: "$20.00",
-    category: "Stationery",
-    image: placeholderImage(28),
-  },
-  {
-    id: 29,
-    title: "Business Card Set",
-    description:
-      "500 double-sided business cards on premium uncoated stock.",
-    price: "$35.00",
-    category: "Stationery",
-    image: placeholderImage(29),
-  },
-  {
-    id: 30,
-    title: "Cotton Paper Notepad",
-    description:
-      "50-sheet notepad on soft-touch cotton paper with a chipboard back.",
-    price: "$15.00",
-    category: "Stationery",
-    image: placeholderImage(30),
-  },
-    {
-    id: 31,
-    title: "Wax Seal Stationery Kit",
-    description:
-      "Correspondence set with a brass seal stamp and colored wax sticks.",
-    price: "$28.00",
-    category: "Stationery",
-    image: placeholderImage(31),
-  },
-  {
-    id: 32,
-    title: "Recycled Kraft Stationery Set",
-    description:
-      "Envelopes and note cards made from 100% recycled kraft paper.",
-    price: "$18.00",
-    category: "Stationery",
-    image: placeholderImage(32),
-  },
-  {
-    id: 33,
-    title: "Embossed Note Cards",
-    description:
-      "Blind-embossed note card set with matching lined envelopes.",
-    price: "$22.00",
-    category: "Stationery",
-    image: placeholderImage(33),
-  },
-
-  // Pens
-  {
-    id: 34,
-    title: "Classic Ballpoint Pen Set",
-    description:
-      "Set of six smooth-writing ballpoint pens in a compact case.",
-    price: "$12.00",
     category: "Pens",
-    image: placeholderImage(34),
+    items: [
+      {
+        title: "Classic Ballpoint Pen Set",
+        description: "Set of six smooth-writing ballpoint pens in a compact case.",
+      },
+      {
+        title: "Fountain Pen Deluxe",
+        description:
+          "Iridium-tipped fountain pen with a brass barrel and piston fill.",
+      },
+      {
+        title: "Metallic Gel Pen Pack",
+        description: "Ten-color metallic gel pen pack for notes and illustration.",
+      },
+      {
+        title: "Executive Pen & Case",
+        description: "Chrome-finish executive pen presented in a fitted hard case.",
+      },
+    ],
   },
   {
-    id: 35,
-    title: "Fountain Pen Deluxe",
-    description:
-      "Iridium-tipped fountain pen with a brass barrel and piston fill.",
-    price: "$55.00",
-    category: "Pens",
-    image: placeholderImage(35),
+    category: "Customize Tshirt",
+    items: [
+      {
+        title: "Custom Print T-Shirt",
+        description: "Full-color custom prints on premium combed cotton fabric.",
+      },
+      {
+        title: "Corporate Logo T-Shirt",
+        description: "Branded team wear with durable screen-printed logos.",
+      },
+      {
+        title: "Event Special T-Shirt",
+        description: "Bulk-order tees designed for events and giveaways.",
+      },
+      {
+        title: "Photo Print T-Shirt",
+        description: "High-resolution photo prints on soft cotton blend tees.",
+      },
+    ],
   },
   {
-    id: 36,
-    title: "Rollerball Pen Trio",
-    description:
-      "Three matte-finish rollerball pens with quick-dry archival ink.",
-    price: "$30.00",
-    category: "Pens",
-    image: placeholderImage(36),
+    category: "Bill Book",
+    items: [
+      {
+        title: "Duplicate Bill Book",
+        description: "Carbonless duplicate bill book for everyday billing.",
+      },
+      {
+        title: "Triplicate Bill Book",
+        description: "Three-part carbonless bill book for detailed record-keeping.",
+      },
+      {
+        title: "Custom Branded Bill Book",
+        description: "Bill book printed with your business name and logo.",
+      },
+      {
+        title: "GST Bill Book",
+        description: "GST-compliant format with pre-printed tax fields.",
+      },
+    ],
   },
   {
-    id: 37,
-    title: "Metallic Gel Pen Pack",
-    description:
-      "Ten-color metallic gel pen pack for notes and illustration.",
-    price: "$10.00",
-    category: "Pens",
-    image: placeholderImage(37),
+    category: "Challan Book",
+    items: [
+      {
+        title: "Delivery Challan Book",
+        description: "Standard delivery challan book with duplicate copies.",
+      },
+      {
+        title: "Custom Challan Book",
+        description: "Branded challan book tailored to your business format.",
+      },
+      {
+        title: "Triplicate Challan Book",
+        description: "Three-part challan book for multi-party record tracking.",
+      },
+      {
+        title: "Bulk Challan Book Set",
+        description: "Pack of multiple challan books for high-volume use.",
+      },
+    ],
   },
   {
-    id: 38,
-    title: "Executive Pen & Case",
-    description:
-      "Chrome-finish executive pen presented in a fitted hard case.",
-    price: "$60.00",
-    category: "Pens",
-    image: placeholderImage(38),
+    category: "Letter Head",
+    items: [
+      {
+        title: "Premium Letterhead",
+        description: "100gsm cotton stock letterhead with subtle watermark finish.",
+      },
+      {
+        title: "Corporate Letterhead",
+        description: "Branded letterhead printed with your company identity.",
+      },
+      {
+        title: "Minimalist Letterhead",
+        description: "Clean, understated design on premium uncoated paper.",
+      },
+      {
+        title: "Bulk Letterhead Pack",
+        description: "Cost-effective bulk printing for everyday correspondence.",
+      },
+    ],
   },
   {
-    id: 39,
-    title: "Recycled Wood Pen Set",
-    description:
-      "Set of two pens turned from reclaimed hardwood offcuts.",
-    price: "$16.00",
-    category: "Pens",
-    image: placeholderImage(39),
+    category: "Envelop",
+    items: [
+      {
+        title: "Custom Envelope Pack",
+        description: "Pack of envelopes available in a range of finishes and sizes.",
+      },
+      {
+        title: "Corporate Branded Envelope",
+        description: "Envelopes printed with your business logo and address.",
+      },
+      {
+        title: "Premium Cotton Envelope",
+        description: "Soft-touch cotton paper envelopes for formal correspondence.",
+      },
+      {
+        title: "Bulk Envelope Set",
+        description: "Economical bulk pack for everyday mailing needs.",
+      },
+    ],
   },
   {
-    id: 40,
-    title: "Calligraphy Pen Kit",
-    description:
-      "Beginner calligraphy kit with interchangeable nibs and ink cartridges.",
-    price: "$25.00",
-    category: "Pens",
-    image: placeholderImage(40),
+    category: "ID Card",
+    items: [
+      {
+        title: "Employee ID Card",
+        description: "PVC ID card with photo, name, and designation printing.",
+      },
+      {
+        title: "Student ID Card",
+        description: "Durable laminated ID card for schools and colleges.",
+      },
+      {
+        title: "Custom Branded ID Card",
+        description:
+          "Fully customizable ID card with your organization's branding.",
+      },
+      {
+        title: "Event Access ID Card",
+        description: "Quick-turnaround ID cards for events and conferences.",
+      },
+    ],
   },
   {
-    id: 41,
-    title: "Signature Series Pen",
-    description:
-      "Limited-edition pen with a hand-lacquered barrel and gold trim.",
-    price: "$48.00",
-    category: "Pens",
-    image: placeholderImage(41),
-  },
-
-  // Gift Boxes
-  {
-    id: 42,
-    title: "Deluxe Stationery Gift Box",
-    description:
-      "Curated box pairing a notebook, pen, and note card set.",
-    price: "$75.00",
-    category: "Gift Boxes",
-    image: placeholderImage(42),
-  },
-  {
-    id: 43,
-    title: "Corporate Welcome Kit",
-    description:
-      "Branded onboarding kit with a diary, pen, and desk accessories.",
-    price: "$90.00",
-    category: "Gift Boxes",
-    image: placeholderImage(43),
+    category: "Vnyl Sticker",
+    items: [
+      {
+        title: "Custom Vinyl Sticker Pack",
+        description: "Weatherproof vinyl stickers cut to any custom shape.",
+      },
+      {
+        title: "Branded Logo Sticker",
+        description: "Durable vinyl stickers printed with your logo.",
+      },
+      {
+        title: "Glossy Vinyl Sticker Set",
+        description: "High-gloss finish stickers for vibrant, sharp prints.",
+      },
+      {
+        title: "Matte Vinyl Sticker Set",
+        description: "Matte-finish vinyl stickers for a subtle, premium look.",
+      },
+    ],
   },
   {
-    id: 44,
-    title: "Premium Notebook & Pen Duo",
-    description:
-      "Matching leather notebook and pen presented in a rigid gift box.",
-    price: "$65.00",
-    category: "Gift Boxes",
-    image: placeholderImage(44),
+    category: "Flex Printing",
+    items: [
+      {
+        title: "Outdoor Flex Banner",
+        description: "Weather-resistant flex banner for outdoor advertising.",
+      },
+      {
+        title: "Indoor Flex Print",
+        description: "High-resolution flex printing for indoor displays.",
+      },
+      {
+        title: "Custom Flex Hoarding",
+        description: "Large-format flex printing for hoardings and signage.",
+      },
+      {
+        title: "Event Flex Backdrop",
+        description: "Vibrant flex backdrop printing for events and photoshoots.",
+      },
+    ],
   },
   {
-    id: 45,
-    title: "Festive Gift Hamper",
-    description:
-      "Seasonal hamper featuring a calendar, diary, and stationery set.",
-    price: "$85.00",
-    category: "Gift Boxes",
-    image: placeholderImage(45),
-  },
-  {
-    id: 46,
-    title: "Minimalist Gift Set",
-    description:
-      "Pared-back gift set with a kraft notebook and matte black pen.",
-    price: "$55.00",
-    category: "Gift Boxes",
-    image: placeholderImage(46),
+    category: "Visiting Card",
+    items: [
+      {
+        title: "Classic Visiting Card",
+        description: "Double-sided visiting cards on premium card stock.",
+      },
+      {
+        title: "Matte Finish Visiting Card",
+        description: "Soft-touch matte lamination for a premium feel.",
+      },
+      {
+        title: "Glossy Visiting Card",
+        description: "Vibrant glossy finish for eye-catching visiting cards.",
+      },
+      {
+        title: "Textured Cotton Visiting Card",
+        description: "Premium cotton stock with a subtle textured finish.",
+      },
+    ],
   },
 ];
+
+export const products: Product[] = seedData.flatMap((group, groupIndex) =>
+  group.items.map((item, itemIndex) => ({
+    id: groupIndex * 4 + itemIndex + 1,
+    title: item.title,
+    description: item.description,
+    category: group.category,
+    featured: groupIndex === 0 && itemIndex === 0,
+    image: getProductImage(group.category, itemIndex + 1),
+  }))
+);
+// import type { Product } from "../types";
+
+// // Eagerly import every image in src/assets/images.
+// // This file lives at src/components/products/data/products.ts,
+// // so we go up 3 levels to reach src/, then into assets/images.
+// const imageModules = import.meta.glob(
+//   "../../../assets/images/*.{jpg,jpeg,JPG,JPEG,png,PNG,webp,WEBP}",
+//   { eager: true, import: "default" }
+// ) as Record<string, string>;
+
+// // Flatten into { lowercase filename : resolved url }
+// const imageFiles = Object.entries(imageModules).map(([path, url]) => ({
+//   name: (path.split("/").pop() ?? "").toLowerCase(),
+//   url,
+// }));
+
+
+// const categoryKeywords: Record<string, string[]> = {
+//   Diaries: ["diary"], // keeping "dairy" too in case any old files remain
+//   Calendars: ["calender", "calendar"],
+//   Stationery: ["stationery"],
+//   Pens: ["pen"],
+//   "Customize Tshirt": ["tshirt"],
+//   "Bill Book": ["billbook", "cespabill", "hondabill"],
+//   "Challan Book": ["challanbook", "hondachallanbook", "challan"],
+//   "Letter Head": ["letter"],
+//   Envelop: ["envelop", "envelp", "envelope"],
+//   "ID Card": ["idcard", "cespaid"],
+//   "Vnyl Sticker": ["vnyl", "vinyl"],
+//   "Flex Printing": ["flex"],
+//   "Visiting Card": ["visiting"],
+// };
+
+// const findImagesForCategory = (category: string): string[] => {
+//   const keywords = categoryKeywords[category] ?? [];
+//   return imageFiles
+//     .filter((f) => keywords.some((kw) => f.name.includes(kw)))
+//     .map((f) => f.url);
+// };
+
+
+// const getProductImage = (category: string, n: number): string => {
+//   const matches = findImagesForCategory(category);
+//   if (matches.length === 0) {
+//     console.warn(`No images matched for category "${category}"`);
+//     return "";
+//   }
+//   return matches[(n - 1) % matches.length];
+// };
+
+// interface ProductSeed {
+//   category: string;
+//   items: { title: string; description: string }[];
+// }
+
+// const seedData: ProductSeed[] = [
+//   {
+//     category: "Diaries",
+//     items: [
+//       {
+//         title: "Executive Heritage Diary",
+//         description:
+//           "Premium leather-bound planner with archival-grade paper and gold-edged pages.",
+//       },
+//       {
+//         title: "Classic Leather Diary",
+//         description:
+//           "Full-grain leather cover with ribbon marker and 90gsm cream pages.",
+//       },
+//       {
+//         title: "Minimalist Kraft Diary",
+//         description:
+//           "Uncoated kraft cover with a stitched spine for a clean, understated look.",
+//       },
+//       {
+//         title: "Weekly Planner Diary",
+//         description:
+//           "Structured weekly spreads with goal-tracking pages and a monthly overview.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Calendars",
+//     items: [
+//       {
+//         title: "Perspective Wall Calendar",
+//         description:
+//           "A3 oversized format featuring matte art paper and industrial-grade twin-loop wire binding.",
+//       },
+//       {
+//         title: "Minimalist Wall Calendar",
+//         description:
+//           "Clean typographic monthly grid printed on uncoated matte stock.",
+//       },
+//       {
+//         title: "Photo Print Calendar",
+//         description:
+//           "Full-bleed photography calendar with a spiral-bound easel back.",
+//       },
+//       {
+//         title: "Mini Desk Calendar",
+//         description: "Compact flip calendar that sits neatly on any desk.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Stationery",
+//     items: [
+//       {
+//         title: "Bespoke Corporate Stationery",
+//         description:
+//           "Fully customizable letterheads, envelopes, and business cards on premium 100% cotton stock.",
+//       },
+//       {
+//         title: "Premium Letterhead Set",
+//         description:
+//           "100gsm cotton letterhead sheets with a subtle watermark finish.",
+//       },
+//       {
+//         title: "Business Card Set",
+//         description: "Double-sided business cards on premium uncoated stock.",
+//       },
+//       {
+//         title: "Embossed Note Cards",
+//         description:
+//           "Blind-embossed note card set with matching lined envelopes.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Pens",
+//     items: [
+//       {
+//         title: "Classic Ballpoint Pen Set",
+//         description: "Set of six smooth-writing ballpoint pens in a compact case.",
+//       },
+//       {
+//         title: "Fountain Pen Deluxe",
+//         description:
+//           "Iridium-tipped fountain pen with a brass barrel and piston fill.",
+//       },
+//       {
+//         title: "Metallic Gel Pen Pack",
+//         description: "Ten-color metallic gel pen pack for notes and illustration.",
+//       },
+//       {
+//         title: "Executive Pen & Case",
+//         description: "Chrome-finish executive pen presented in a fitted hard case.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Customize Tshirt",
+//     items: [
+//       {
+//         title: "Custom Print T-Shirt",
+//         description: "Full-color custom prints on premium combed cotton fabric.",
+//       },
+//       {
+//         title: "Corporate Logo T-Shirt",
+//         description: "Branded team wear with durable screen-printed logos.",
+//       },
+//       {
+//         title: "Event Special T-Shirt",
+//         description: "Bulk-order tees designed for events and giveaways.",
+//       },
+//       {
+//         title: "Photo Print T-Shirt",
+//         description: "High-resolution photo prints on soft cotton blend tees.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Bill Book",
+//     items: [
+//       {
+//         title: "Duplicate Bill Book",
+//         description: "Carbonless duplicate bill book for everyday billing.",
+//       },
+//       {
+//         title: "Triplicate Bill Book",
+//         description: "Three-part carbonless bill book for detailed record-keeping.",
+//       },
+//       {
+//         title: "Custom Branded Bill Book",
+//         description: "Bill book printed with your business name and logo.",
+//       },
+//       {
+//         title: "GST Bill Book",
+//         description: "GST-compliant format with pre-printed tax fields.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Challan Book",
+//     items: [
+//       {
+//         title: "Delivery Challan Book",
+//         description: "Standard delivery challan book with duplicate copies.",
+//       },
+//       {
+//         title: "Custom Challan Book",
+//         description: "Branded challan book tailored to your business format.",
+//       },
+//       {
+//         title: "Triplicate Challan Book",
+//         description: "Three-part challan book for multi-party record tracking.",
+//       },
+//       {
+//         title: "Bulk Challan Book Set",
+//         description: "Pack of multiple challan books for high-volume use.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Letter Head",
+//     items: [
+//       {
+//         title: "Premium Letterhead",
+//         description: "100gsm cotton stock letterhead with subtle watermark finish.",
+//       },
+//       {
+//         title: "Corporate Letterhead",
+//         description: "Branded letterhead printed with your company identity.",
+//       },
+//       {
+//         title: "Minimalist Letterhead",
+//         description: "Clean, understated design on premium uncoated paper.",
+//       },
+//       {
+//         title: "Bulk Letterhead Pack",
+//         description: "Cost-effective bulk printing for everyday correspondence.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Envelop",
+//     items: [
+//       {
+//         title: "Custom Envelope Pack",
+//         description: "Pack of envelopes available in a range of finishes and sizes.",
+//       },
+//       {
+//         title: "Corporate Branded Envelope",
+//         description: "Envelopes printed with your business logo and address.",
+//       },
+//       {
+//         title: "Premium Cotton Envelope",
+//         description: "Soft-touch cotton paper envelopes for formal correspondence.",
+//       },
+//       {
+//         title: "Bulk Envelope Set",
+//         description: "Economical bulk pack for everyday mailing needs.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "ID Card",
+//     items: [
+//       {
+//         title: "Employee ID Card",
+//         description: "PVC ID card with photo, name, and designation printing.",
+//       },
+//       {
+//         title: "Student ID Card",
+//         description: "Durable laminated ID card for schools and colleges.",
+//       },
+//       {
+//         title: "Custom Branded ID Card",
+//         description:
+//           "Fully customizable ID card with your organization's branding.",
+//       },
+//       {
+//         title: "Event Access ID Card",
+//         description: "Quick-turnaround ID cards for events and conferences.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Vnyl Sticker",
+//     items: [
+//       {
+//         title: "Custom Vinyl Sticker Pack",
+//         description: "Weatherproof vinyl stickers cut to any custom shape.",
+//       },
+//       {
+//         title: "Branded Logo Sticker",
+//         description: "Durable vinyl stickers printed with your logo.",
+//       },
+//       {
+//         title: "Glossy Vinyl Sticker Set",
+//         description: "High-gloss finish stickers for vibrant, sharp prints.",
+//       },
+//       {
+//         title: "Matte Vinyl Sticker Set",
+//         description: "Matte-finish vinyl stickers for a subtle, premium look.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Flex Printing",
+//     items: [
+//       {
+//         title: "Outdoor Flex Banner",
+//         description: "Weather-resistant flex banner for outdoor advertising.",
+//       },
+//       {
+//         title: "Indoor Flex Print",
+//         description: "High-resolution flex printing for indoor displays.",
+//       },
+//       {
+//         title: "Custom Flex Hoarding",
+//         description: "Large-format flex printing for hoardings and signage.",
+//       },
+//       {
+//         title: "Event Flex Backdrop",
+//         description: "Vibrant flex backdrop printing for events and photoshoots.",
+//       },
+//     ],
+//   },
+//   {
+//     category: "Visiting Card",
+//     items: [
+//       {
+//         title: "Classic Visiting Card",
+//         description: "Double-sided visiting cards on premium card stock.",
+//       },
+//       {
+//         title: "Matte Finish Visiting Card",
+//         description: "Soft-touch matte lamination for a premium feel.",
+//       },
+//       {
+//         title: "Glossy Visiting Card",
+//         description: "Vibrant glossy finish for eye-catching visiting cards.",
+//       },
+//       {
+//         title: "Textured Cotton Visiting Card",
+//         description: "Premium cotton stock with a subtle textured finish.",
+//       },
+//     ],
+//   },
+// ];
+
+// export const products: Product[] = seedData.flatMap((group, groupIndex) =>
+//   group.items.map((item, itemIndex) => ({
+//     id: groupIndex * 4 + itemIndex + 1,
+//     title: item.title,
+//     description: item.description,
+//     category: group.category,
+//     featured: groupIndex === 0 && itemIndex === 0,
+//     image: getProductImage(group.category, itemIndex + 1),
+//   }))
+// );

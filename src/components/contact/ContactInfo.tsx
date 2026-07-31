@@ -57,11 +57,9 @@ const ContactInfo = () => {
                 />
 
                 <p className="leading-8 text-white/75">
-                  123 Printing Street
+                  Behind Prabhu Chambers, Kalbhornagar,Chinchwad
                   <br />
-                  Industrial Area
-                  <br />
-                  Mumbai - 400001
+                  Pune, 411019
                   <br />
                   Maharashtra, India
                 </p>
@@ -74,7 +72,7 @@ const ContactInfo = () => {
                 />
 
                 <span className="text-lg text-white/80">
-                  +91 98765 43210
+                  +91 7758874354
                 </span>
               </div>
 
@@ -85,7 +83,9 @@ const ContactInfo = () => {
                 />
 
                 <span className="text-lg text-white/80">
-                  hello@idealprinters.com
+                   idealprinters111@gmail.com
+                   <br/>
+                   yasirmoin81@gmail.com
                 </span>
               </div>
 
@@ -96,7 +96,7 @@ const ContactInfo = () => {
                 />
 
                 <span className="text-lg text-white/80">
-                  www.idealprinters.com
+                  www.idealprinters.in
                 </span>
               </div>
             </div>
@@ -106,7 +106,7 @@ const ContactInfo = () => {
           <div className="overflow-hidden rounded-3xl shadow-2xl">
             <iframe
               title="Ideal Printers"
-              src="https://www.google.com/maps?q=Mumbai,+Maharashtra&output=embed"
+             src="https://www.google.com/maps?q=Behind+Prabhu+Chambers,+Kalbhornagar,+Chinchwad,+Pune,+Maharashtra+411019&output=embed"
               className="h-[520px] w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

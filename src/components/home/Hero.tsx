@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight, ScrollText, Droplet } from "lucide-react";
 import Hero1 from "../../assets/images/Hero1.jpeg";
-import Hero2 from "../../assets/images/Hero2.png";
+import Hero2 from "../../assets/images/calender1.png";
 import Hero3 from "../../assets/images/Hero3.png";
 import Hero4 from "../../assets/images/Hero4.png";
 import Hero5 from "../../assets/images/Hero5.png";

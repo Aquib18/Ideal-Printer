@@ -6,21 +6,21 @@ import Container from "../common/Container";
 import type { Category } from "../products/types";
 
 
-import Dairy from "../../assets/images/Dairy.png";
+import Diary from "../../assets/images/diary5.png";
 import Pen from "../../assets/images/Pen.png";
-import Calender from "../../assets/images/Hero2.png";
+import Calender from "../../assets/images/calender1.png";
 import Notebook from "../../assets/images/Notebook.png";
 import Stationary from "../../assets/images/Stationary.png";
 
 
 import Tshirt from "../../assets/images/Hero5.png";
 import IDCard from "../../assets/images/Hero4.png";
-import Challanbook from "../../assets/images/Challan.png";
+import Challanbook from "../../assets/images/challan1.png";
 import Billbook from "../../assets/images/Hero3.png";
 import Letterhead from "../../assets/images/Letterhead.jpeg";
-import Envelop from "../../assets/images/Envelp.jpeg";
-import Vnyl from "../../assets/images/Vnyl.jpeg";
-import Flex from "../../assets/images/Flex.jpeg";
+import Envelop from "../../assets/images/envelop1.jpeg";
+import Vnyl from "../../assets/images/vnyl4.jpeg";
+import Flex from "../../assets/images/flex1.jpeg";
 import VisitingCard from "../../assets/images/Hero1.jpeg";
 
 const products: {
@@ -31,7 +31,7 @@ const products: {
   {
     title: "Diaries",
     category: "Diaries",
-    image: Dairy,
+    image: Diary,
   },
   {
     title: "Notebooks",

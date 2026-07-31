@@ -1,16 +1,21 @@
-// src/components/gallery/GalleryFilter.tsx
-
 import React from "react";
 import clsx from "clsx";
 import Container from "../common/Container";
 
 export type GalleryCategory =
   | "all"
-  | "wedding"
-  | "business"
-  | "packaging"
-  | "large"
-  | "corporate";
+  | "diaries"
+  | "calendars"
+  | "stationery"
+  | "pens"
+  | "billbook"
+  | "challanbook"
+  | "letterhead"
+  | "envelop"
+  | "idcard"
+  | "vnylsticker"
+  | "flexprinting"
+  | "visitingcard";
 
 interface FilterOption {
   label: string;
@@ -19,11 +24,18 @@ interface FilterOption {
 
 const FILTERS: FilterOption[] = [
   { label: "All Projects", value: "all" },
-  { label: "Wedding Cards", value: "wedding" },
-  { label: "Business Cards", value: "business" },
-  { label: "Packaging", value: "packaging" },
-  { label: "Large Format", value: "large" },
-  { label: "Corporate Printing", value: "corporate" },
+  { label: "Diaries", value: "diaries" },
+  { label: "Calendars", value: "calendars" },
+  { label: "Stationery", value: "stationery" },
+  { label: "Pens", value: "pens" },
+  { label: "Bill Book", value: "billbook" },
+  { label: "Challan Book", value: "challanbook" },
+  { label: "Letter Head", value: "letterhead" },
+  { label: "Envelop", value: "envelop" },
+  { label: "ID Card", value: "idcard" },
+  { label: "Vnyl Sticker", value: "vnylsticker" },
+  { label: "Flex Printing", value: "flexprinting" },
+  { label: "Visiting Card", value: "visitingcard" },
 ];
 
 interface GalleryFilterProps {
@@ -31,12 +43,6 @@ interface GalleryFilterProps {
   onChange: (category: GalleryCategory) => void;
 }
 
-/**
- * GalleryFilter
- * Row of pill buttons used to filter the GalleryGrid below it.
- * State is controlled by the parent so GalleryGrid can react to the
- * same `active` value.
- */
 const GalleryFilter: React.FC<GalleryFilterProps> = ({ active, onChange }) => {
   return (
     <section className="border-b border-[#d3c4b2]/30 bg-[#eeeeec] py-12">

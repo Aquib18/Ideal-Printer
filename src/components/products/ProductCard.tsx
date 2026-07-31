@@ -147,7 +147,7 @@ export default function ProductCard({
 
         <div className="mt-6 flex items-center justify-between">
           <span className="text-xl font-bold text-[#c8a165]">
-            {product.price}
+            {/* {product.price} */}
           </span>
 
           <Button

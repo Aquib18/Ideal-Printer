@@ -1,5 +1,3 @@
-// src/components/gallery/GalleryHero.tsx
-
 import React from "react";
 
 interface GalleryHeroProps {
@@ -11,11 +9,7 @@ interface GalleryHeroProps {
 const DEFAULT_BG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAlS1tZ0P04vI9oiOymtpu58pwzTJtiXkK20qNQYijsIGcDURd2iTQ32KX3twz3so8U2NYS-PLkUtsu9ED2wLpE6JdhMm4gkdbc2xDH6lkAWjGi0QUOLTIaYm6CI0xmv0rp6OuSg9u2KNMjdJtyuuYThnaLMuQTQ4xdhRFzy4mhExd_IqfNe9tR9lDGkeaIFypDXgOy-mhJmFgmRODow_ZJplFOFK4-9IuCFy6ak2_ZhQcNVDw0eI9E";
 
-/**
- * GalleryHero
- * Full-bleed dark banner used at the top of the Gallery page.
- * Shows a dimmed background photo behind a centered title + description.
- */
+
 const GalleryHero: React.FC<GalleryHeroProps> = ({
   title = "Our Work",
   description = "Where industrial precision meets artisanal excellence. Browse our portfolio of elite print productions.",
