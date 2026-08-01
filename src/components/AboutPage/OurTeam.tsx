@@ -4,7 +4,7 @@ import yasir from "../../assets/images/yasir.png";
 import Muzahirul from "../../assets/images/Muzahirul.png";
 const team = [
    {
-    name: "Muzahirul Haque",
+    name: "Mozahirul Haque",
     role: "Founder",
     image:Muzahirul,
   },
