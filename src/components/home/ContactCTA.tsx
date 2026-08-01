@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Container from "../common/Container";
+import { openWhatsApp } from "../../utils/whatsapp";
 
 const ContactCTA = () => {
   return (
@@ -23,6 +24,11 @@ const ContactCTA = () => {
 
         {/* CTA Button */}
         <button
+          onClick={() =>
+            openWhatsApp(
+              "Hello, Ideal Printers. I'd like to get a quote for my printing requirements."
+            )
+          }
           className="
             group
             flex
@@ -47,7 +53,7 @@ const ContactCTA = () => {
 
           <ArrowRight
             size={22}
-            className="transition-transform group-hover:translate-x-1"
+            className="transition-transform duration-300 group-hover:translate-x-1"
           />
         </button>
       </Container>

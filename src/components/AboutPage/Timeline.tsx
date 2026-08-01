@@ -3,7 +3,7 @@ import Container from "../common/Container";
 
 const timeline = [
   {
-    year: "1999",
+    year: "2002",
     title: "Company Founded",
     description:
       "Ideal Printers was established with a vision to deliver premium printing services with uncompromising quality.",
@@ -24,7 +24,7 @@ const timeline = [
     year: "2018",
     title: "Packaging Solutions",
     description:
-      "Started premium packaging and label printing for retail, food, and manufacturing industries.",
+      "Started premium packaging and label printing for retai and manufacturing industries.",
   },
   {
     year: "2026",

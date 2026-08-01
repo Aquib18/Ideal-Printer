@@ -1,5 +1,5 @@
 
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2} from "lucide-react";
 import Container from "../common/Container";
 
 const highlights = [
@@ -23,7 +23,7 @@ const CompanyStory = () => {
             />
 
             <div className="absolute -bottom-8 -right-8 rounded-2xl bg-[#C9963E] p-8 text-center shadow-xl">
-              <h3 className="text-5xl font-bold text-white">25+</h3>
+              <h3 className="text-5xl font-bold text-white">24+</h3>
               <p className="mt-2 text-white">
                 Years of
                 <br />
@@ -76,14 +76,14 @@ const CompanyStory = () => {
             </div>
 
             {/* Button */}
-            <button className="group mt-10 inline-flex items-center gap-3 rounded-xl bg-[#C9963E] px-8 py-4 font-semibold text-[#4A3100] transition-all duration-300 hover:scale-105 hover:bg-[#D7A13D]">
+            {/* <button className="group mt-10 inline-flex items-center gap-3 rounded-xl bg-[#C9963E] px-8 py-4 font-semibold text-[#4A3100] transition-all duration-300 hover:scale-105 hover:bg-[#D7A13D]">
               Learn More
 
               <ArrowRight
                 size={18}
                 className="transition-transform group-hover:translate-x-1"
               />
-            </button>
+            </button> */}
           </div>
         </div>
       </Container>

@@ -9,7 +9,7 @@ import type { Category } from "../products/types";
 import Diary from "../../assets/images/diary5.png";
 import Pen from "../../assets/images/Pen.png";
 import Calender from "../../assets/images/calender1.png";
-import Notebook from "../../assets/images/Notebook.png";
+// import Notebook from "../../assets/images/Notebook.png";
 import Stationary from "../../assets/images/Stationary.png";
 
 
@@ -33,15 +33,25 @@ const products: {
     category: "Diaries",
     image: Diary,
   },
-  {
-    title: "Notebooks",
-    category: "Notebooks",
-    image: Notebook,
+    {
+    title: "ID Card",
+    category: "ID Card",
+    image: IDCard,
   },
+  // {
+  //   title: "Notebooks",
+  //   category: "Notebooks",
+  //   image: Notebook,
+  // },
   {
     title: "Calendars",
     category: "Calendars",
     image: Calender,
+  },
+    {
+    title: "Envelop",
+    category: "Envelop",
+    image: Envelop,
   },
   {
     title: "Stationery",
@@ -73,16 +83,8 @@ const products: {
     category: "Visiting Card",
     image: VisitingCard,
   },
-  {
-    title: "Envelop",
-    category: "Envelop",
-    image: Envelop,
-  },
-  {
-    title: "ID Card",
-    category: "ID Card",
-    image: IDCard,
-  },
+
+
   {
     title: "Customize Tshirt",
     category: "Customize Tshirt",

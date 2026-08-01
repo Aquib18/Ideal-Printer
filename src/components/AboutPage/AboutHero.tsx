@@ -1,8 +1,10 @@
 
 import { ArrowRight } from "lucide-react";
 import Container from "../common/Container";
+import { useNavigate } from "react-router-dom"; 
 
 const AboutHero = () => {
+    const navigate = useNavigate();
   return (
     <section className="relative overflow-hidden bg-[#1E1E1E] py-28">
       {/* Background Pattern */}
@@ -35,7 +37,9 @@ const AboutHero = () => {
 
           {/* Buttons */}
           <div className="mt-10 flex flex-wrap gap-4">
-            <button className="group flex items-center gap-2 rounded-lg bg-[#C9963E] px-7 py-4 font-semibold text-[#4A3100] transition-all duration-300 hover:scale-105 hover:bg-[#D8A64B]">
+            <button 
+            onClick={() => navigate("/services")}
+            className="group flex items-center gap-2 rounded-lg bg-[#C9963E] px-7 py-4 font-semibold text-[#4A3100] transition-all duration-300 hover:scale-105 hover:bg-[#D8A64B]">
               Explore Services
               <ArrowRight
                 size={18}
@@ -43,7 +47,9 @@ const AboutHero = () => {
               />
             </button>
 
-            <button className="rounded-lg border border-gray-500 px-7 py-4 font-semibold text-white transition-all duration-300 hover:border-[#C9963E] hover:text-[#F5BD61]">
+            <button 
+             onClick={() => navigate("/contact")}
+            className="rounded-lg border border-gray-500 px-7 py-4 font-semibold text-white transition-all duration-300 hover:border-[#C9963E] hover:text-[#F5BD61]">
               Contact Us
             </button>
           </div>
@@ -51,7 +57,7 @@ const AboutHero = () => {
           {/* Stats */}
           <div className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">
             <div>
-              <h3 className="text-3xl font-bold text-[#F5BD61]">25+</h3>
+              <h3 className="text-3xl font-bold text-[#F5BD61]">24+</h3>
               <p className="mt-2 text-sm text-gray-400">Years Experience</p>
             </div>
 

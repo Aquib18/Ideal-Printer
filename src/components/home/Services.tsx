@@ -6,7 +6,7 @@ import {
   Package,
   Gift,
   Building2,
-  ArrowRight,
+  // ArrowRight,
 } from "lucide-react";
 import Container from "../common/Container";
 
@@ -51,7 +51,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-24 bg-[#FAFAF8]">
+    <section className="py-12 bg-[#FAFAF8]">
       <Container>
         {/* Heading */}
         <div className="mb-16">
@@ -98,7 +98,7 @@ const Services = () => {
                   {service.description}
                 </p>
 
-                <button
+                {/* <button
                   className="
                     mt-6
                     flex
@@ -112,7 +112,7 @@ const Services = () => {
                 >
                   Learn More
                   <ArrowRight size={18} />
-                </button>
+                </button> */}
               </div>
             );
           })}

@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-
+import { openWhatsApp } from "../../utils/whatsapp";
 import Badge from "../common/Badge";
 import Button from "../common/Button";
 import Card from "../common/Card";
@@ -60,14 +60,21 @@ const ServiceCard = ({
 
         {/* Button */}
 
-        <Button className="mt-8 w-full">
-          <span>Request Quote</span>
+      <Button
+  className="mt-8 w-full"
+  onClick={() =>
+    openWhatsApp(
+      `Hello, Ideal Printers. I'm interested in your "${title}" service. Please share more details and a quotation.`
+    )
+  }
+>
+  <span>Request Quote</span>
 
-          <ArrowRight
-            size={18}
-            className="transition-transform group-hover:translate-x-1"
-          />
-        </Button>
+  <ArrowRight
+    size={18}
+    className="transition-transform duration-300 group-hover:translate-x-1"
+  />
+</Button>
       </div>
     </Card>
   );

@@ -10,7 +10,7 @@ import Container from "../common/Container";
 const stats = [
   {
     icon: CalendarDays,
-    number: "25+",
+    number: "24+",
     title: "Years Experience",
     description:
       "Delivering premium printing solutions with consistency and innovation.",

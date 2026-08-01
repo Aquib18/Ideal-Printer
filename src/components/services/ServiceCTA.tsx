@@ -1,7 +1,8 @@
 import Button from "../common/Button";
 import Section from "../common/Section";
-
+import { useNavigate } from "react-router-dom";
 const ServicesCTA = () => {
+    const navigate = useNavigate();
   return (
     <Section className="bg-[#C9963E]">
       <div className="flex flex-col items-center justify-between gap-10 lg:flex-row">
@@ -22,7 +23,9 @@ const ServicesCTA = () => {
         {/* Buttons */}
 
         <div className="flex flex-col gap-4 sm:flex-row">
-          <Button className="bg-black text-white hover:bg-black">
+          <Button
+           onClick={() => navigate("/contact")}
+           className="bg-black text-white hover:bg-black">
             Consult Our Team
           </Button>
 

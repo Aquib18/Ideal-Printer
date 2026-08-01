@@ -1,7 +1,19 @@
 import Button from "../common/Button";
 import Section from "../common/Section";
 
+const PHONE_NUMBER = "917758874354";
+const MESSAGE =
+  "Hello, Ideal Printers. I'm interested in starting a custom printing project.";
+
 const IndustriesCTA = () => {
+  const handleWhatsApp = () => {
+    const url = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(
+      MESSAGE
+    )}`;
+
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <Section className="bg-[#1E1E1E]">
       <div className="mx-auto max-w-3xl text-center">
@@ -16,7 +28,7 @@ const IndustriesCTA = () => {
         </p>
 
         <div className="mt-10">
-          <Button>
+          <Button onClick={handleWhatsApp}>
             Start a Custom Project
           </Button>
         </div>

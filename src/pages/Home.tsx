@@ -5,7 +5,7 @@ import ProductShowcase from "../components/home/ProductShowcase";
 import Workflow from "../components/home/WorkFlow";
 import Testimonials from "../components/home/Testimonials";
 import Brand from "../components/home/Brands";
-import FAQ from "../components/home/FAQ";
+
 import ContactCTA from "../components/home/ContactCTA";
 import WhatsAppButton from "../components/common/WhatsAppButton";
 
@@ -21,7 +21,7 @@ const HomePage = () => {
         <Workflow />
         <Testimonials />
         <Brand />
-        <FAQ />
+        
            <WhyChooseUs />
         <ContactCTA />
       </main>

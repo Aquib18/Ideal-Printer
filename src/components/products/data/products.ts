@@ -12,19 +12,19 @@ for (const [path, url] of Object.entries(imageModules)) {
 }
 
 const categoryImageOrder: Record<string, string[]> = {
-  Diaries: ["dairy1.png", "diary2.jpeg", "diary3.jpeg", "diary4.jpeg"],
-  Calendars: ["calender1.png","calender2.jpeg", "calender3.jpeg", "calender2.jpeg"],
-  Stationery: ["stationary.png"],
-  Pens: ["pen.png"],
-  "Customize Tshirt": [], // no image uploaded yet
-  "Bill Book": ["bill1.jpeg","bill2.jpeg","bill3.jpeg","bill3.jpeg"],
-  "Challan Book": ["challan1.png","challan2.jpeg","challan3.jpeg","challan1.png"],
+  Diaries: ["dairy1.png", "diary2.jpeg", "diary3.jpeg", "diary4.jpeg","diary6.jpeg"],
+  Calendars: ["calender1.png","calender2.jpeg", "calender3.jpeg", "calender4.jpeg"],
+  Stationery: ["stationary.png","stationary4.jpeg","stationary2.jpeg","stationary3.jpeg",],
+  Pens: ["pen.png","pen1.jpeg","pen2.jpeg","pen3.jpeg",],
+  "Customize Tshirt": ["tshirt1.jpeg","tshirt2.jpeg","tshirt3.jpeg","tshirt4.jpeg",], // no image uploaded yet
+  "Bill Book": ["bill1.jpeg","bill2.jpeg","bill3.jpeg","bill4.jpeg"],
+  "Challan Book": ["challan1.png","challan2.jpeg","challan3.jpeg","challan4.jpeg"],
   "Letter Head": ["letterhead.jpeg", "letter1.jpeg","letter2.jpeg","letter2.jpeg"],
-  Envelop: ["envelop1.jpeg","envelop2.jpeg","envelop3.jpeg","envelop4.jpeg"],
-  "ID Card": ["id1.jpeg","id3.jpeg","id2.png","id3.jpeg"],
-  "Vnyl Sticker": ["vnyl1.jpeg","vnyl2.jpeg","vnyl3.jpeg","vnyl4.jpeg", ],
-  "Flex Printing": ["flex1.jpeg","flex2.jpeg","flex3.jpeg","flex1.jpeg",],
-  "Visiting Card": ["visitingcard.jpeg", "visiting1.jpg","visiting2.jpeg","visiting3.jpeg"],
+  Envelop: ["envelop1.jpeg","envelop2.jpeg","envelop3.jpeg","envelop4.jpeg","envelop5.jpeg"],
+  "ID Card": ["id1.jpeg","id3.jpeg","id2.png","id4.jpeg"],
+  "Vnyl Sticker": ["vnyl1.jpeg","vnyl2.jpeg","vnyl3.jpeg","vnyl4.jpeg","vnyl5.jpeg" ],
+  "Flex Printing": ["flex1.jpeg","flex2.jpeg","flex3.jpeg","flex4.jpeg",],
+  "Visiting Card": ["visitingcard.jpeg", "visiting1.jpg","visiting2.jpeg","visiting3.jpeg","visiting4.jpeg"],
 };
 
 const getProductImage = (category: string, n: number): string => {
@@ -71,6 +71,11 @@ const seedData: ProductSeed[] = [
         description:
           "Structured weekly spreads with goal-tracking pages and a monthly overview.",
       },
+      {
+        title: "New Year Diary",
+        description:
+          "Structured Monthly plan with goal-tracking pages and a monthly overview.",
+      },
     ],
   },
   {
@@ -106,9 +111,9 @@ const seedData: ProductSeed[] = [
           "Fully customizable letterheads, envelopes, and business cards on premium 100% cotton stock.",
       },
       {
-        title: "Premium Letterhead Set",
+        title: "Premium Stationary Item",
         description:
-          "100gsm cotton letterhead sheets with a subtle watermark finish.",
+          "Customize Statioanry",
       },
       {
         title: "Business Card Set",
@@ -246,6 +251,10 @@ const seedData: ProductSeed[] = [
         title: "Bulk Envelope Set",
         description: "Economical bulk pack for everyday mailing needs.",
       },
+        {
+        title: "School Branded Envelope",
+        description: "Envelopes printed with your School logo and address.",
+      },
     ],
   },
   {
@@ -289,6 +298,10 @@ const seedData: ProductSeed[] = [
         title: "Matte Vinyl Sticker Set",
         description: "Matte-finish vinyl stickers for a subtle, premium look.",
       },
+        {
+        title: "College Logo Sticker",
+        description: "Durable vinyl stickers printed with your logo.",
+      },
     ],
   },
   {
@@ -331,20 +344,27 @@ const seedData: ProductSeed[] = [
         title: "Textured Cotton Visiting Card",
         description: "Premium cotton stock with a subtle textured finish.",
       },
+        {
+        title: "College Visiting Card",
+        description: "Double-sided visiting cards on premium card stock.",
+      },
     ],
   },
 ];
 
-export const products: Product[] = seedData.flatMap((group, groupIndex) =>
-  group.items.map((item, itemIndex) => ({
-    id: groupIndex * 4 + itemIndex + 1,
-    title: item.title,
-    description: item.description,
-    category: group.category,
-    featured: groupIndex === 0 && itemIndex === 0,
-    image: getProductImage(group.category, itemIndex + 1),
-  }))
-);
+export const products: Product[] = (() => {
+  let nextId = 1;
+  return seedData.flatMap((group) =>
+    group.items.map((item, itemIndex) => ({
+      id: nextId++,
+      title: item.title,
+      description: item.description,
+      category: group.category,
+      featured: nextId === 2, // first product overall (id 1)
+      image: getProductImage(group.category, itemIndex + 1),
+    }))
+  );
+})();
 // import type { Product } from "../types";
 
 // // Eagerly import every image in src/assets/images.
